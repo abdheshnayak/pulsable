@@ -2,7 +2,7 @@
 
 A simple and customizable JavaScript library to add a pulsing/skeleton loading effect to your specific html section.
 
-**[Code Sandbox Link](https://codesandbox.io/s/k7fdzw?file=/src/App.js)**
+**[Code Sandbox Link](https://codesandbox.io/s/pulsable-kyzztl?file=/src/App.js)**
 
 ![Demo Image](./screenshot.png)
 
