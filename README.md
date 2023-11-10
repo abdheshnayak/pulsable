@@ -68,11 +68,6 @@ setPulsing({
 });
 ```
 
-### importing css
-```jsx
-import "pulsable/dist/pulsable.css";
-```
-
 ## Usage Guide
 
 The method `setPulsing` takes an object with the following properties:
@@ -109,4 +104,4 @@ The method `setPulsing` takes an object with the following properties:
 
 ## React Support 
 
-for the react use library [react-pulsable](https://www.npmjs.com/package/react-pulsable)
+for the react use library [react-pulsable](https://www.npmjs.com/package/react-pulsable)read
