@@ -13,6 +13,13 @@ or
 import setPulsing from "pulsable";
 ```
 
+### using CDN
+```html
+<script src="https://cdn.jsdelivr.net/npm/pulsable"></script>
+or
+<script src="https://cdn.jsdelivr.net/npm/pulsable@version"></script>
+```
+
 ### How to trigger effect and stop it
 ```jsx
 
