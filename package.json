@@ -2,7 +2,7 @@
   "name": "pulsable",
   "author": "Abdhesh Nayak",
   "license": "MIT",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A simple and customizable JavaScript library to add a pulsing/skeleton loading effect to your specific html section.",
   "private": false,
   "types": "./dist/@types/pulsable.d.ts",
@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
-    "build": "npm run clean && npm run build:css && node build.js && npm run tsc",
+    "build": "npm run clean && npm run build:css && node build.js && npm run tsc && rimraf dist/index.iife.css",
     "pack": "npm pack --pack-destination ./out",
     "clean": "rimraf dist",
     "dev:build": "npm run build",

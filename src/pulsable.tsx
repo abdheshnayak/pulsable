@@ -270,4 +270,17 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
   requestAnimationFrame(manp);
 };
 
+// @ts-ignore
+if (typeof global !== 'undefined' || typeof globalThis !== 'undefined') {
+  // @ts-ignore
+  if (typeof global !== 'undefined') {
+    // @ts-ignore
+    global.setPulsing = setPulsing;
+  }
+  if (typeof globalThis !== 'undefined') {
+    // @ts-ignore
+    globalThis.setPulsing = setPulsing;
+  }
+}
+
 export default setPulsing;

@@ -30,3 +30,15 @@ build({
   outfile: './dist/index.js',
   target: ['esnext', 'node20.6.0'],
 });
+
+build({
+  ...shared,
+  plugins: [
+    sassPlugin({
+      cssImports: {},
+    }),
+  ],
+  format: 'iife',
+  outfile: './dist/index.iife.js',
+  target: ['esnext'],
+});
