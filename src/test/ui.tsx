@@ -8,7 +8,7 @@ const Pulsable = ({
   children,
   isLoading,
   bgColors,
-  noRadius = false,
+  noRounded: noRadius = false,
   noPadding = false,
   className,
   ...props
@@ -23,7 +23,7 @@ const Pulsable = ({
       config: {
         animation,
         bgColors,
-        noRadius,
+        noRounded: noRadius,
         noPadding,
       },
       loading: isLoading,
@@ -58,7 +58,7 @@ const App = ({ isLoading }: { isLoading: boolean }) => {
 
       {/* custom background with no rounded corners */}
       <Pulsable
-        noRadius
+        noRounded
         isLoading={isLoading}
         bgColors={{
           light: 'rgba(0, 0, 255, 0.2)',
@@ -98,7 +98,7 @@ const TestUI = () => {
         </div>
       </button>
 
-      <Pulsable animation="wave-reverse" noRadius isLoading={isLoading}>
+      <Pulsable animation="wave-reverse" isLoading={isLoading}>
         <div
           style={{
             display: 'flex',

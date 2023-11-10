@@ -11,7 +11,7 @@ type pulseAnimation = 'none' | 'pulse' | 'wave' | 'wave-reverse';
 export interface Props {
   animation?: pulseAnimation;
   bgColors?: bgColors;
-  noRadius?: boolean;
+  noRounded?: boolean;
   noPadding?: boolean;
   [key: string]: any;
 }
@@ -59,7 +59,7 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
   const {
     animation = 'wave',
     bgColors,
-    noRadius = false,
+    noRounded = false,
     noPadding = false,
   } = config || {};
   const setCalculating = (calculating: boolean) => {
@@ -109,7 +109,7 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
     const pCircle = el.cloneNode(true) as HTMLDivElement;
     pCircle.classList.add('pl-child-circle');
 
-    if (noRadius) {
+    if (noRounded) {
       el.classList.add('pl-no-rounded');
       pPara.classList.add('pl-no-rounded');
     }
@@ -217,6 +217,12 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
 
             const pulsePara = components.pPara();
 
+            if (noRounded && cList.contains('pulsable-rounded')) {
+              pulsePara.classList.remove('pl-no-rounded');
+            } else if (!noRounded && cList.contains('pulsable-no-rounded')) {
+              pulsePara.classList.add('pl-no-rounded');
+            }
+
             pulsePara.style.setProperty(
               'height',
               `${(res.font_size * 80) / 100}px`
@@ -226,6 +232,12 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
               pulseEl.appendChild(pulsePara.cloneNode(true));
             }
           } else if (noPadding) {
+            if (cList.contains('pulsable-padding')) {
+              pulseEl = components.pRect();
+            } else {
+              pulseEl = components.pRectFull();
+            }
+          } else if (cList.contains('pulsable-no-padding')) {
             pulseEl = components.pRectFull();
           } else {
             pulseEl = components.pRect();
@@ -233,6 +245,12 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
 
           if (cList.contains('pulsable-img')) {
             pulseEl.appendChild(iSvg);
+          }
+
+          if (noRounded && cList.contains('pulsable-rounded')) {
+            pulseEl.classList.remove('pl-no-rounded');
+          } else if (!noRounded && cList.contains('pulsable-no-rounded')) {
+            pulseEl.classList.add('pl-no-rounded');
           }
 
           element.parentNode?.appendChild(pulseEl);

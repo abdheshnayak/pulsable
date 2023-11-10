@@ -23,27 +23,7 @@ import setPulsing from "pulsable";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pulsable/dist/index.css" />
 ```
 
-### How to trigger effect and stop it
-```jsx
 
-### importing css
-```jsx
-import "pulsable/dist/pulsable.css";
-```
-
-const yourContainerElement = document.getElementById("your-container-element");
-
-setPulsing({
-    rootElement: yourContainerElement,
-    config: {
-    animation,
-    bgColors,
-    noRadius,
-    noPadding,
-    },
-    loading: true,
-});
-```
 
 ### How to design your element block
 
@@ -67,6 +47,30 @@ setPulsing({
     Submit
     </button>
 </form>
+```
+
+### How to trigger effect and stop it
+```js
+const yourContainerElement = document.getElementById("your-container-element");
+
+setPulsing({
+    rootElement: yourContainerElement,
+    config: {
+        animation: "wave",
+        bgColors: {
+            light: "#f2f2f2",
+            medium: "#e6e6e6",
+        },
+        noRadius: false,
+        noPadding: false,
+    },
+    loading: true,
+});
+```
+
+### importing css
+```jsx
+import "pulsable/dist/pulsable.css";
 ```
 
 ## Usage Guide
@@ -97,6 +101,8 @@ The method `setPulsing` takes an object with the following properties:
 - if you want to hide some element while loading add class name `pulsable-hidden`
 - if you want to add image icon in skeleton add class name `pulsable-img`
 - for the paragraph use classname `pulsable-para`
+- while applying base config to all elements, you may need some exceptions. for that you can use `pulsable-no-radius`, `pulsable-no-padding`, `pulsable-radius` and `pulsable-padding`. by using these classes you can override some specific elements.
+
 
 - As Shown in example, for better performance you can use `flex` and  `align-items: flex-start` in parentNode to avoid the pulsing effect from stretching the element. you can also add these styles conditionally wihile loading, if it's affecting your design.
 
