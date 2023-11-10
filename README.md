@@ -11,17 +11,25 @@ A simple and customizable JavaScript library to add a pulsing/skeleton loading e
 const setPulsing = require("pulsable");
 or
 import setPulsing from "pulsable";
+
+// css path: "pulsable/index.css"
 ```
 
 ### using CDN
+[CDN Link](https://www.jsdelivr.com/package/npm/pulsable)
+
+### css with CDN
 ```html
-<script src="https://cdn.jsdelivr.net/npm/pulsable"></script>
-or
-<script src="https://cdn.jsdelivr.net/npm/pulsable@version"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pulsable/dist/index.css" />
 ```
 
 ### How to trigger effect and stop it
 ```jsx
+
+### importing css
+```jsx
+import "pulsable/dist/pulsable.css";
+```
 
 const yourContainerElement = document.getElementById("your-container-element");
 
