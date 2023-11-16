@@ -1,4 +1,9 @@
-.pl-cont {
+.pulsable-cont {
+  &.pulsable-base{
+    outline: none !important;
+    opacity: 0 !important;
+  }
+
   &.pl-css{
     @tailwind utilities;
 
@@ -25,11 +30,6 @@
       100% {
         background-position: -438px 0;
       }
-    }
-
-    &.pl-calc{
-      outline: none !important;
-      opacity: 0 !important;
     }
 
     .pl-animate-none{

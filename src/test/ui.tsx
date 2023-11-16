@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import setPulsing, { Props } from '../pulsable';
 import './ui.css';
+import '../css/index.scss';
 
 const Pulsable = ({
   animation = 'wave',
@@ -26,12 +27,16 @@ const Pulsable = ({
         noRounded: noRadius,
         noPadding,
       },
-      loading: isLoading,
+      loading: true,
     });
   }, [isLoading, ref.current]);
 
   return (
-    <div ref={ref} className={className} {...props}>
+    <div
+      ref={ref}
+      className={`${className || ''} pulsable-cont pulsable-base`}
+      {...props}
+    >
       {children}
     </div>
   );

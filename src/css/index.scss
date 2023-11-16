@@ -1,4 +1,8 @@
-.pl-cont {
+.pulsable-cont {
+  &.pulsable-base{
+    outline: none !important;
+    opacity: 0 !important;
+  }
   &.pl-css{
     .pl-animate-none {
       -webkit-animation: none;
@@ -46,10 +50,6 @@
       100% {
         background-position: -438px 0;
       }
-    }
-    &.pl-calc{
-      outline: none !important;
-      opacity: 0 !important;
     }
     .pl-animate-none{
       background: var(--color-transparent-medium, rgba(130, 130, 130, 0.2));

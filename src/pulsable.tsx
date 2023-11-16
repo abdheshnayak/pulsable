@@ -64,9 +64,9 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
   } = config || {};
   const setCalculating = (calculating: boolean) => {
     if (calculating) {
-      rootElement.classList.add('pl-calc');
+      rootElement.classList.add('pulsable-base');
     } else {
-      rootElement.classList.remove('pl-calc');
+      rootElement.classList.remove('pulsable-base');
     }
   };
 
@@ -148,8 +148,8 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
       return;
     }
 
-    if (!rootElement.classList.contains('pl-cont')) {
-      rootElement.classList.add('pl-cont');
+    if (!rootElement.classList.contains('pulsable-cont')) {
+      rootElement.classList.add('pulsable-cont');
     }
 
     if (loading) {
@@ -170,7 +170,11 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
       iSvg.classList.add('pl-svg-cont');
       iSvg.innerHTML = iPlaceholder;
 
-      rootElement.querySelectorAll('.pulsable').forEach((element) => {
+      const pElements = rootElement.querySelectorAll('.pulsable');
+
+      for (let i = 0; i < pElements.length; i++) {
+        const element = pElements[i];
+
         element.classList.add('pl-element');
 
         if (!element.hasAttribute('disabled')) {
@@ -256,32 +260,37 @@ const setPulsing = ({ rootElement, config, loading = true }: ISetPulsing) => {
           element.parentNode?.appendChild(pulseEl);
           element.appendChild(pulseEl);
         }
-      });
+      }
 
       setCalculating(false);
     } else {
-      rootElement.querySelectorAll('.pl-child').forEach((v) => {
-        v.parentNode?.removeChild(v);
-      });
+      const pChild = rootElement.querySelectorAll('.pl-child');
+      for (let i = 0; i < pChild.length; i++) {
+        const k = pChild[i];
+        k.parentNode?.removeChild(k);
+      }
 
-      rootElement.querySelectorAll('.pl-element').forEach((v) => {
-        if (v.classList) {
-          v.classList.remove('pl-element');
+      const pEl = rootElement.querySelectorAll('.pl-element');
+      for (let i = 0; i < pEl.length; i++) {
+        if (pEl[i].classList) {
+          pEl[i].classList.remove('pl-element');
         }
-      });
+      }
 
-      rootElement
-        .querySelectorAll('.pl-has-disabled-attr')
-        .forEach((element) => {
-          element.removeAttribute('disabled');
-          element.classList.remove('pl-has-disabled-attr');
-        });
+      const plAtr = rootElement.querySelectorAll('.pl-has-disabled-attr');
+      for (let i = 0; i < plAtr.length; i++) {
+        const k = plAtr[i];
+        k.removeAttribute('disabled');
+        k.classList.remove('pl-has-disabled-attr');
+      }
 
-      rootElement.querySelectorAll('.pl-child-element').forEach((element) => {
-        element.classList.remove('pl-child-element');
-      });
+      const pCh = rootElement.querySelectorAll('.pl-child-element');
+      for (let i = 0; i < pCh.length; i++) {
+        pCh[i].classList.remove('pl-child-element');
+      }
 
       setLoading(false);
+      setCalculating(false);
     }
   };
 
