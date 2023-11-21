@@ -5,6 +5,10 @@
   }
 
   &.pl-css{
+    * {
+      transition: none !important;
+    }
+
     @tailwind utilities;
 
     -webkit-user-select: none; /* Safari */

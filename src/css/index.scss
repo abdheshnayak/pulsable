@@ -4,6 +4,9 @@
     opacity: 0 !important;
   }
   &.pl-css{
+    * {
+      transition: none !important;
+    }
     .pl-animate-none {
       -webkit-animation: none;
               animation: none;
