@@ -2,7 +2,7 @@
   "name": "pulsable",
   "author": "Abdhesh Nayak",
   "license": "MIT",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "A simple and customizable JavaScript library to add a pulsing/skeleton loading effect to your specific html section.",
   "private": false,
   "types": "./dist/@types/pulsable.d.ts",
@@ -16,10 +16,12 @@
     },
     ".": {
       "import": {
-        "default": "./dist/index.mjs"
+        "default": "./dist/index.mjs",
+        "types": "./dist/@types/pulsable.d.ts"
       },
       "require": {
-        "default": "./dist/index.js"
+        "default": "./dist/index.js",
+        "types": "./dist/@types/pulsable.d.ts"
       }
     }
   },
